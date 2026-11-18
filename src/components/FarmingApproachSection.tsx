@@ -35,23 +35,23 @@ export default function FarmingApproachSection() {
   ];
 
   return (
-    <section className="py-24 lg:py-32 bg-[#F2EFE6] border-t border-b border-sage/70">
-      <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
+    <section className="py-14 sm:py-16 md:py-20 lg:py-28 xl:py-32 bg-[#F2EFE6] border-t border-b border-sage/70">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
         {/* Header */}
-        <div className="max-w-3xl mb-16 lg:mb-20">
-          <span className="text-xs uppercase tracking-[0.25em] text-botanical-dark font-semibold block mb-3">
+        <div className="max-w-3xl mb-10 sm:mb-14 lg:mb-20">
+          <span className="text-xs uppercase tracking-[0.22em] sm:tracking-[0.25em] text-botanical-dark font-semibold block mb-2 sm:mb-3">
             Our Foundation
           </span>
-          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-forest font-medium tracking-tight">
+          <h2 className="font-serif text-2xl min-[360px]:text-3xl sm:text-4xl lg:text-5xl text-forest font-medium tracking-tight">
             Growing Naturally. Caring Deeply.
           </h2>
-          <p className="mt-4 text-base sm:text-lg text-charcoal/80 leading-relaxed font-light">
+          <p className="mt-3 sm:mt-4 text-sm sm:text-base md:text-lg text-charcoal/80 leading-relaxed font-light">
             Quality produce is not accidental. It is the result of working with the soil, respecting the plant cycle, and maintaining honest agricultural discipline on our own land.
           </p>
         </div>
 
-        {/* Horizontal Editorial Cards */}
-        <div className="space-y-12 lg:space-y-16">
+        {/* Features Stack: Mobile-first vertical stack, alternating on desktop */}
+        <div className="space-y-6 sm:space-y-8 lg:space-y-12">
           {pillars.map((pillar, i) => {
             const isReversed = i % 2 === 1;
             const Icon = pillar.icon;
@@ -59,13 +59,13 @@ export default function FarmingApproachSection() {
             return (
               <div
                 key={pillar.title}
-                className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center bg-white p-6 sm:p-10 rounded-sm border border-sage/80 shadow-xs"
+                className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-12 items-center bg-white p-4 sm:p-6 md:p-8 lg:p-10 rounded-sm border border-sage/80 shadow-2xs"
               >
-                {/* Image */}
+                {/* Image: Always on top for mobile (order-1), alternating on desktop */}
                 <div
-                  className={`lg:col-span-6 relative h-72 sm:h-96 rounded-sm overflow-hidden bg-sage/20 ${
+                  className={`order-1 ${
                     isReversed ? "lg:order-2" : "lg:order-1"
-                  }`}
+                  } lg:col-span-6 relative h-52 min-[400px]:h-60 sm:h-72 md:h-80 lg:h-96 rounded-sm overflow-hidden bg-sage/20`}
                 >
                   <Image
                     src={pillar.image}
@@ -74,39 +74,39 @@ export default function FarmingApproachSection() {
                     sizes="(max-width: 1024px) 100vw, 50vw"
                     className="object-cover object-center hover:scale-105 transition-transform duration-700 ease-out"
                   />
-                  <div className="absolute top-4 left-4 bg-forest/90 text-ivory text-xs uppercase tracking-widest px-3 py-1 font-medium rounded-xs backdrop-blur-xs">
+                  <div className="absolute top-3 left-3 sm:top-4 sm:left-4 bg-forest/90 text-ivory text-[10px] sm:text-xs uppercase tracking-widest px-2.5 sm:px-3 py-1 font-medium rounded-xs backdrop-blur-xs">
                     {pillar.tag}
                   </div>
                 </div>
 
-                {/* Content */}
+                {/* Content: Below image on mobile (order-2), alternating on desktop */}
                 <div
-                  className={`lg:col-span-6 space-y-4 ${
+                  className={`order-2 ${
                     isReversed ? "lg:order-1" : "lg:order-2"
-                  }`}
+                  } lg:col-span-6 space-y-3 sm:space-y-4 pt-1 sm:pt-2 lg:pt-0`}
                 >
-                  <div className="flex items-center space-x-3 text-earth">
-                    <span className="font-serif text-2xl font-light">{pillar.num}</span>
-                    <span className="w-8 h-[1px] bg-earth/40" />
-                    <Icon className="w-5 h-5" strokeWidth={1.75} />
+                  <div className="flex items-center space-x-2.5 sm:space-x-3 text-earth">
+                    <span className="font-serif text-xl sm:text-2xl font-light">{pillar.num}</span>
+                    <span className="w-6 sm:w-8 h-[1px] bg-earth/40" />
+                    <Icon className="w-4 h-4 sm:w-5 sm:h-5 text-earth" strokeWidth={1.75} />
                   </div>
 
-                  <h3 className="font-serif text-2xl sm:text-3xl text-forest font-medium">
+                  <h3 className="font-serif text-xl sm:text-2xl lg:text-3xl text-forest font-medium">
                     {pillar.title}
                   </h3>
 
-                  <p className="text-xs uppercase tracking-widest text-botanical-dark font-medium">
+                  <p className="text-[11px] sm:text-xs uppercase tracking-widest text-botanical-dark font-medium">
                     {pillar.lead}
                   </p>
 
-                  <p className="text-charcoal/80 text-sm sm:text-base leading-relaxed pt-1">
+                  <p className="text-charcoal/80 text-xs sm:text-sm md:text-base leading-relaxed pt-0.5 sm:pt-1">
                     {pillar.text}
                   </p>
 
-                  <div className="pt-4">
+                  <div className="pt-2 sm:pt-3">
                     <Link
                       href="/our-farm#cultivation"
-                      className="inline-flex items-center space-x-2 text-xs uppercase tracking-widest text-forest font-semibold hover:text-botanical-dark transition-colors group"
+                      className="min-h-[40px] inline-flex items-center space-x-2 text-xs uppercase tracking-widest text-forest font-semibold hover:text-botanical-dark transition-colors group focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-forest rounded-xs"
                     >
                       <span>Read practice details</span>
                       <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" strokeWidth={1.75} />
